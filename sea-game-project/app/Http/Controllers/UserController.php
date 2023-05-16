@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequests;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = User::create([
-            'name'=> request('name'),
-            'email'=> request('email'),
-            'password'=> request('password'),
+            'name'=> $request->input('name'),
+            'email'=> $request->input('email'),
+            'password'=> $request->input('password'),
         ]);
 
         return response() -> json(['Create success' => true, 'data' => $user],201);
