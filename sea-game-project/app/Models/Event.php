@@ -22,6 +22,8 @@ class Event extends Model
     {
         $event = $request->only(['name', 'dateStart', 'dateEnd', 'location', 'user_id']);
         $event = self::updateOrCreate(['id' => $id], $event);
+        $teams = request('teams');
+        $event->teams()->sync($teams);
         return $event;
     }
 

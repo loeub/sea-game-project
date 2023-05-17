@@ -13,6 +13,7 @@ class EventController extends Controller
     {
         //
         $event = Event::all();
+        $event = EventShowResource::collection($event);
         return response() -> json(['success' => true, 'data' => $event],200);
 
     }

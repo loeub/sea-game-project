@@ -23,10 +23,11 @@ class EventRequests extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
 
-     protected function failedValidation(Validator $validator)
-     {
+    protected function failedValidation(Validator $validator)
+    {
          throw new HttpResponseException(response()->json(['error' => false, 'message' => $validator->errors()], 402));
-     } 
+    }
+    
     public function rules(): array
     {
         return [
