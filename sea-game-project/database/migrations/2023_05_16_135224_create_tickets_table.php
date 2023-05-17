@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->dateTime('timeStart');
-            $table->dateTime('timeEnd');
+            $table->string('timeStart');
+            $table->string('timeEnd');
             $table->string('location');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
